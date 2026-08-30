@@ -1,18 +1,18 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
-	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
+	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 
-	// Import defineCustomElements to register Stencil web components
-	onMount(async () => {
-		if (browser) {
-			const { defineCustomElements } = await import('@mdaaquibkhan/recipe-ui-components/loader');
-			defineCustomElements(window);
-		}
-	});
-
 	let { children } = $props();
+	let componentsReady = $state(!browser); // true on server, false in browser until loaded
+
+	onMount(async () => {
+		// Import and register Stencil components
+		const { defineCustomElements } = await import('@mdaaquibkhan/recipe-ui-components/loader');
+		await defineCustomElements(window);
+		componentsReady = true;
+	});
 </script>
 
 <nav>
@@ -22,10 +22,22 @@
 	<a href="{base}/favourite">Favorites</a>
 </nav>
 <main>
-	{@render children()}
+	{#if componentsReady}
+		{@render children()}
+	{:else}
+		<div class="loading">Loading...</div>
+	{/if}
 </main>
 
 <style>
+	.loading {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 200px;
+		color: #666;
+	}
+
 	/* Fix Stencil hydration visibility issue */
 	:global(overlay-card),
 	:global(planner-card),
