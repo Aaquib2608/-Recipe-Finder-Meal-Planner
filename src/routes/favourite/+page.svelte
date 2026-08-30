@@ -82,7 +82,7 @@
 		<div class="empty-state">
 			<h2>No favorites yet</h2>
 			<p>Start adding recipes to your favorites to see them here!</p>
-			<a href="/" class="browse-btn">Browse Recipes</a>
+			<a href="{base}/" class="browse-btn">Browse Recipes</a>
 		</div>
 	{:else}
 		<div class="favorites-grid">

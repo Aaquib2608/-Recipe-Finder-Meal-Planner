@@ -2,13 +2,15 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
+	import { onMount } from 'svelte';
 
 	// Import defineCustomElements to register Stencil web components
-	if (browser) {
-		import('@mdaaquibkhan/recipe-ui-components/loader').then(({ defineCustomElements }) => {
+	onMount(async () => {
+		if (browser) {
+			const { defineCustomElements } = await import('@mdaaquibkhan/recipe-ui-components/loader');
 			defineCustomElements(window);
-		});
-	}
+		}
+	});
 
 	let { children } = $props();
 </script>
@@ -24,6 +26,14 @@
 </main>
 
 <style>
+	/* Fix Stencil hydration visibility issue */
+	:global(overlay-card),
+	:global(planner-card),
+	:global(recipe-card),
+	:global(recipe-overlay) {
+		visibility: visible !important;
+	}
+
 	:global(body) {
 		margin: 0;
 		font-family: system-ui, -apple-system, sans-serif;
