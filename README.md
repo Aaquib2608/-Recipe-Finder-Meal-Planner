@@ -22,7 +22,7 @@ npm run lint
 
 - Node.js and npm are already installed on your machine.
 - This project uses the existing scripts in package.json (vite + svelte-kit).
-- The GitHub repository URL is inferred because no git remote is configured in this workspace.
+- Deployment target is GitHub Pages for this repository.
 
 ## Starting Development Server
 
@@ -40,6 +40,4 @@ Open the local URL shown in your terminal (typically http://localhost:5173).
 
 ## GitHub Repository
 
-- https://github.com/mdaaquibkhan/aaquibkhan
-
-If your actual repository URL is different, replace the link above.
+- https://github.com/Aaquib2608/-Recipe-Finder-Meal-Planner
