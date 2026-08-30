@@ -1,21 +1,8 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 	import { base } from '$app/paths';
-	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
 
 	let { children } = $props();
-	let componentsReady = $state(!browser); // true on server, false in browser until loaded
-
-	onMount(async () => {
-		// Import and register Stencil components
-		const { defineCustomElements } = await import('@mdaaquibkhan/recipe-ui-components/loader');
-		console.log('recipe-card registered?', !!customElements.get('recipe-card'));
-		console.log('day-slot registered?', !!customElements.get('planner-card'));
-		console.log('ui-modal registered?', !!customElements.get('recipe-overlay'));
-		await defineCustomElements(window);
-		componentsReady = true;
-	});
 </script>
 
 <nav>
@@ -25,31 +12,12 @@
 	<a href="{base}/favourite">Favorites</a>
 </nav>
 <main>
-	{#if componentsReady}
-		{@render children()}
-	{:else}
-		<div class="loading">Loading...</div>
-	{/if}
+	{@render children()}
 </main>
 
 <style>
-	.loading {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		min-height: 200px;
-		color: #666;
-	}
-
-	/* Fix Stencil hydration visibility issue */
-	:global(overlay-card),
-	:global(planner-card),
-	:global(recipe-card),
-	:global(recipe-overlay) {
-		visibility: visible !important;
-	}
-
-	body {
+	:global(body) {
+		margin: 0;
 		font-family: system-ui, -apple-system, sans-serif;
 	}
 

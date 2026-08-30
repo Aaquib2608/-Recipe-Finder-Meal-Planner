@@ -4,10 +4,10 @@ import adapter from '@sveltejs/adapter-static';
 const config = {
 	kit: {
 		adapter: adapter({
-			fallback: '404.html'
+			fallback: 'index.html'
 		}),
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/Recipe-Finder-Meal-Planner' : ''
+			base: process.env.NODE_ENV === 'production' ? '/-Recipe-Finder-Meal-Planner' : ''
 		}
 	}
 };
