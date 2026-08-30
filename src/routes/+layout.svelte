@@ -10,6 +10,9 @@
 	onMount(async () => {
 		// Import and register Stencil components
 		const { defineCustomElements } = await import('@mdaaquibkhan/recipe-ui-components/loader');
+		console.log('recipe-card registered?', !!customElements.get('recipe-card'));
+		console.log('day-slot registered?', !!customElements.get('planner-card'));
+		console.log('ui-modal registered?', !!customElements.get('recipe-overlay'));
 		await defineCustomElements(window);
 		componentsReady = true;
 	});
@@ -46,8 +49,7 @@
 		visibility: visible !important;
 	}
 
-	:global(body) {
-		margin: 0;
+	body {
 		font-family: system-ui, -apple-system, sans-serif;
 	}
 
