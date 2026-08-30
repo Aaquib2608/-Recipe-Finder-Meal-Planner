@@ -1,5 +1,7 @@
 import type { PageLoad } from './$types';
 
+export const prerender = false;
+
 // Check if this is a user-created recipe (stored in localStorage)
 function isUserRecipeId(id: string): boolean {
 	return id.startsWith('user_');

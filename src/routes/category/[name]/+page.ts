@@ -1,5 +1,7 @@
 import type { PageLoad } from './$types';
 
+export const prerender = false;
+
 interface Meal {
 	idMeal: string;
 	strMeal: string;
