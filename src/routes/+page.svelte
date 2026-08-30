@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import CategoryCard from '$lib/components/CategoryCard.svelte';
+	import { base } from '$app/paths';
 
 	let { data }: { data: PageData } = $props();
 
@@ -154,7 +155,7 @@
 							recipe-id={meal.idMeal}
 							recipe-title={meal.strMeal}
 							image={meal.strMealThumb}
-							url={`/meal/${meal.idMeal}`}
+							url={`${base}/meal/${meal.idMeal}`}
 						></recipe-card>
 					{/each}
 				</div>
@@ -173,7 +174,7 @@
 					name={category.strCategory}
 					image={category.strCategoryThumb}
 					description={category.strCategoryDescription}
-					href={`/category/${category.strCategory}`}
+					href={`${base}/category/${category.strCategory}`}
 				/>
 			{/each}
 		</div>

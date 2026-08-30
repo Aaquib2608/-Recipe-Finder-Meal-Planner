@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 	import {
 		getUserRecipes,
 		getUserRecipe,
@@ -187,7 +188,7 @@
 						recipe-id={recipe.id}
 						recipe-title={recipe.strMeal}
 						image={recipe.strMealThumb || ''}
-						url={`/meal/${recipe.id}`}
+						url={`${base}/meal/${recipe.id}`}
 					></recipe-card>
 					<div class="action-icons">
 						<button class="icon-btn edit-icon" onclick={() => openEditForm(recipe.id)} title="Edit recipe">

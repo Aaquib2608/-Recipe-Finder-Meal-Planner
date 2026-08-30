@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { getFavoriteIds } from '$lib/stores/favoriteStore';
 	import { getUserRecipe, isUserRecipe } from '$lib/stores/recipeStore';
+	import { base } from '$app/paths';
 
 	interface FavoriteRecipe {
 		id: string;
@@ -90,7 +91,7 @@
 					recipe-id={recipe.id}
 					recipe-title={recipe.strMeal}
 					image={recipe.strMealThumb}
-					url={`/meal/${recipe.id}`}
+					url={`${base}/meal/${recipe.id}`}
 					ontoggleFavorite={handleToggleFavorite}
 				></recipe-card>
 			{/each}

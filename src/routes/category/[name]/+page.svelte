@@ -1,12 +1,13 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 
 	let { data }: { data: PageData } = $props();
 
 	function handleRecipeSelect(event: CustomEvent) {
 		const mealId = event.detail.id;
-		goto(`/meal/${mealId}`);
+		goto(`${base}/meal/${mealId}`);
 	}
 
 	function handleToggleFavorite(event: CustomEvent) {
@@ -31,7 +32,7 @@
 					recipe-id={meal.idMeal}
 					recipe-title={meal.strMeal}
 					image={meal.strMealThumb}
-					url={`/meal/${meal.idMeal}`}
+					url={`${base}/meal/${meal.idMeal}`}
 					onrecipeSelect={handleRecipeSelect}
 					ontoggleFavorite={handleToggleFavorite}
 				></recipe-card>

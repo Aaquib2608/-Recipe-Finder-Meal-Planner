@@ -1,6 +1,7 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 	import { browser } from '$app/environment';
+	import { base } from '$app/paths';
 
 	// Import defineCustomElements to register Stencil web components
 	if (browser) {
@@ -13,10 +14,10 @@
 </script>
 
 <nav>
-	<a href="/">Home</a>
-	<a href="/recipes">My Recipes</a>
-	<a href="/planner">Planner</a>
-	<a href="/favourite">Favorites</a>
+	<a href="{base}/">Home</a>
+	<a href="{base}/recipes">My Recipes</a>
+	<a href="{base}/planner">Planner</a>
+	<a href="{base}/favourite">Favorites</a>
 </nav>
 <main>
 	{@render children()}
