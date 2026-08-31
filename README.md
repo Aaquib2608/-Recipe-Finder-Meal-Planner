@@ -1,4 +1,4 @@
-# Recipe App (SvelteKit)
+# Recipe-Finder-Meal-Planner
 
 README for running and understanding this project.
 
@@ -40,4 +40,4 @@ Open the local URL shown in your terminal (typically http://localhost:5173).
 
 ## GitHub Repository
 
-- https://github.com/Aaquib2608/-Recipe-Finder-Meal-Planner
+- https://github.com/Aaquib2608/Recipe-Finder-Meal-Planner
