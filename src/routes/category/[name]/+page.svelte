@@ -20,7 +20,7 @@
 </svelte:head>
 
 <main>
-	<a href="/" class="back-link">← Back to Categories</a>
+	<a href="{base}/" class="back-link">← Back to Categories</a>
 	<h1>{data.categoryName} Recipes</h1>
 
 	{#if data.meals.length === 0}

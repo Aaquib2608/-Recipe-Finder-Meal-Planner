@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import { base } from '$app/paths';
 	import { getUserRecipe, type UserRecipe } from '$lib/stores/recipeStore';
 	import { isFavorite, toggleFavorite } from '$lib/stores/favoriteStore';
 
@@ -48,7 +49,7 @@
 </svelte:head>
 
 <main>
-	<a href="/" class="back-link">← Back to Categories</a>
+	<a href="{base}/" class="back-link">← Back to Categories</a>
 
 	{#if isLoading}
 		<div class="loading">Loading recipe...</div>
