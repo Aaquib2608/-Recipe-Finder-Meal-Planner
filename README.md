@@ -41,3 +41,6 @@ Open the local URL shown in your terminal (typically http://localhost:5173).
 ## GitHub Repository
 
 - https://github.com/Aaquib2608/Recipe-Finder-Meal-Planner
+
+## Deployed application URL
+- https://aaquib2608.github.io/Recipe-Finder-Meal-Planner/
